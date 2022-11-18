@@ -73,6 +73,21 @@ btnHold.addEventListener("click", function () {
   }
 });
 
-btnNew.addEventListener('click', function(){
-  
-})
+btnNew.addEventListener("click", function () {
+  currentScore = 0;
+  // document.querySelector(`#score--${activePlayer}`).textContent = 0;
+  document.querySelector(`#current--0`).textContent = 0;
+  document.querySelector(`#current--1`).textContent = 0;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove("player--winner");
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add("player--active");
+  scores[activePlayer] = 0;
+  playing = true;
+  document.getElementById(`score--1`).textContent = scores[activePlayer];
+  document.getElementById(`score--0`).textContent = scores[activePlayer];
+
+  btnRoll();
+});
